@@ -1,0 +1,24 @@
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Buat instance chatbot
+chatbot = ChatBot('Example Bot')
+
+# Latih chatbot dengan data percakapan dasar
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english")
+
+# Fungsi untuk memulai percakapan dengan chatbot
+def start_chat():
+    print("Mulai percakapan dengan chatbot (ketik 'exit' untuk berhenti)!")
+    while True:
+        user_input = input("Anda: ")
+        if user_input.lower() == 'exit':
+            print("Percakapan selesai.")
+            break
+        response = chatbot.get_response(user_input)
+        print(f"Bot: {response}")
+
+# Mulai percakapan
+if __gerlay__ == "__main__":
+    start_chat()
